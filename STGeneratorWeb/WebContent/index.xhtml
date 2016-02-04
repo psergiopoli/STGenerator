@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+<ui:composition template="/template.xhtml">
+	<ui:define name="head">
+		<style>
+		#modelos input[type="radio"]{ /* HIDE RADIO */
+		  display:none;
+		}
+		#modelos label{ /* IMAGE STYLES */
+		  border:2px solid black;
+		}
+		#modelos input[type="radio"]:checked + label{ /* (CHECKED) IMAGE STYLES */
+		  border:2px solid #f00;
+		}
+		.img_model{
+			margin-right: 10px;
+		}
+		.container{
+			margin-left: auto;
+			margin-right: auto;
+		}
+		</style>		
+		<script src='https://www.google.com/recaptcha/api.js'></script>
+	</ui:define>
+	<ui:define name="content">
+		<script type="text/javascript" src="${request.contextPath}/js/script_index.js"></script> 
+	    <h:form enctype="multipart/form-data" prependId="false" styleClass="row" acceptcharset="utf-8">
+	    	<div class="col-sm-10 col-md-10 col-lg-10">
+		    	<h:messages styleClass="alert alert-danger"/>
+		    	<div class="col-sm-12 col-md-12 col-lg-12">
+		    		<div class="form-group col-sm-9 col-md-9 col-lg-9">
+					    <h:outputLabel value="#{mensagens.nomeCarta}" for="tituloCarta" styleClass="sr-only"/>
+					    <h:inputText id="tituloCarta" value="#{index.tituloCarta}" styleClass="form-control" pt:placeholder="#{mensagens.nomeCarta}" pt:required="true" required="true" maxlength="40" pt:maxlength="40"/>
+				    </div>
+				    <div class="form-group col-sm-3 col-md-3 col-lg-3">
+					    <h:outputLabel value="#{mensagens.numeroDaCarta}" for="numeroDaCarta" styleClass="sr-only"/>
+					    <h:inputText id="numeroDaCarta" value="#{index.numeroCarta}" styleClass="form-control" pt:placeholder="#{mensagens.numeroDaCarta}" pt:required="true" required="true" maxlength="4" pt:maxlength="4"/>
+					</div>
+			    </div>
+			    
+			    <div class="col-sm-12 col-md-12 col-lg-12">
+		    		<div class="form-group col-sm-9 col-md-9 col-lg-9">
+				    	<h:outputLabel value="#{mensagens.atributo} 1" for="atributo1" styleClass="sr-only"/>
+				    	<h:inputText id="atributo1" value="#{index.atributo1}" styleClass="form-control" pt:placeholder="#{mensagens.atributo} 1" pt:required="true" required="true" maxlength="40" pt:maxlength="40"/>
+			    	</div>
+			    	<div class="form-group col-sm-3 col-md-3 col-lg-3">
+					    <h:outputLabel value="#{mensagens.valorDoAtributo}" for="ValorAtributo1" styleClass="sr-only"/>
+					    <h:inputText id="ValorAtributo1" value="#{index.valorAtributo1}" styleClass="form-control" pt:placeholder="#{mensagens.valorDoAtributo}" pt:required="true" required="true" maxlength="9" pt:maxlength="9"/>
+				    </div>
+			    </div>
+				    
+		     	<div class="col-sm-12 col-md-12 col-lg-12">
+		     		<div class="form-group col-sm-9 col-md-9 col-lg-9">
+					   	<h:outputLabel value="#{mensagens.atributo} 2" for="atributo2" styleClass="sr-only"/>
+					    <h:inputText id="atributo2" value="#{index.atributo2}" styleClass="form-control" pt:placeholder="#{mensagens.atributo} 2" pt:required="true" required="true" maxlength="40" pt:maxlength="40" />
+				    </div>
+				    <div class="form-group col-sm-3 col-md-3 col-lg-3">
+					    <h:outputLabel value="#{mensagens.valorDoAtributo}" for="ValorAtributo2" styleClass="sr-only"/>
+					    <h:inputText id="ValorAtributo2" value="#{index.valorAtributo2}" styleClass="form-control" pt:placeholder="#{mensagens.valorDoAtributo}" pt:required="true" required="true" maxlength="9" pt:maxlength="9"/>
+				    </div>
+			    </div>
+			    
+			    <div class="col-sm-12 col-md-12 col-lg-12">
+			    	<div class="form-group col-sm-9 col-md-9 col-lg-9">		    
+					   	<h:outputLabel value="#{mensagens.atributo} 3" for="atributo3" styleClass="sr-only"/>
+					    <h:inputText id="atributo3" value="#{index.atributo3}" styleClass="form-control" pt:placeholder="#{mensagens.atributo} 3" pt:required="true" required="true" maxlength="40" pt:maxlength="40"/>
+				    </div>
+				    <div class="form-group col-sm-3 col-md-3 col-lg-3">
+					    <h:outputLabel value="#{mensagens.valorDoAtributo}" for="ValorAtributo3" styleClass="sr-only"/>
+					    <h:inputText id="ValorAtributo3" value="#{index.valorAtributo3}" styleClass="form-control" pt:placeholder="#{mensagens.valorDoAtributo}" pt:required="true" required="true" maxlength="9" pt:maxlength="9"/>
+				    </div>
+			    </div>
+			    
+			    <div class="col-sm-12 col-md-12 col-lg-12">
+			    	<div class="form-group col-sm-9 col-md-9 col-lg-9">		    
+					    <h:outputLabel value="#{mensagens.atributo} 4" for="atributo4" styleClass="sr-only"/>
+					    <h:inputText id="atributo4" value="#{index.atributo4}" styleClass="form-control" pt:placeholder="#{mensagens.atributo} 4" pt:required="true" required="true" maxlength="40" pt:maxlength="40"/>
+				    </div>
+				    <div class="form-group col-sm-3 col-md-3 col-lg-3">
+					    <h:outputLabel value="#{mensagens.valorDoAtributo}" for="ValorAtributo4" styleClass="sr-only"/>
+					    <h:inputText id="ValorAtributo4" value="#{index.valorAtributo4}" styleClass="form-control" pt:placeholder="#{mensagens.valorDoAtributo}" pt:required="true" required="true" maxlength="9" pt:maxlength="9"/>
+				   	</div>
+			    </div>
+			    
+			    <div class="col-sm-12 col-md-12 col-lg-12">
+			    	<div class="form-group col-sm-9 col-md-9 col-lg-9">   
+					    <h:outputLabel value="#{mensagens.atributo} 5" for="atributo5" styleClass="sr-only"/>
+					    <h:inputText id="atributo5" value="#{index.atributo5}" styleClass="form-control" pt:placeholder="#{mensagens.atributo} 5" pt:required="true" required="true" maxlength="40" pt:maxlength="40"/>
+				    </div>
+				    <div class="form-group col-sm-3 col-md-3 col-lg-3">
+					    <h:outputLabel value="#{mensagens.valorDoAtributo}" for="ValorAtributo5" styleClass="sr-only"/>
+					    <h:inputText id="ValorAtributo5" value="#{index.valorAtributo5}" styleClass="form-control" pt:placeholder="#{mensagens.valorDoAtributo}" pt:required="true" required="true" maxlength="9" pt:maxlength="9"/>
+				    </div>    		    
+				</div>
+				
+			    <div class="col-sm-12 col-md-12 col-lg-12" id="select_imagem">
+			    	<h:outputLabel value="#{mensagens.selecionarModelo}:" style="float: left; margin-top: 54px;" styleClass="ACartoon"/>	    
+				    <h:selectOneRadio value="#{index.modeloSelecionado}" id="modelos" required="true">
+				    	<f:selectItems value="#{index.modelos}" var="m"/>
+				    </h:selectOneRadio>		
+				</div>
+				
+				<div class="col-sm-12 col-md-12 col-lg-12" style="margin-top: 15px; margin-bottom: 15px;">
+					<h:outputLabel value="#{mensagens.acessoPublico}" for="acessoPublico" styleClass="ACartoon"/>
+					<h:selectBooleanCheckbox id="acessoPublico" styleClass="publico" pt:data-off-text="#{mensagens.nao}" pt:data-on-text="#{mensagens.sim}" value="#{index.publico}"/>
+				</div>
+				
+				<h:panelGroup rendered="#{index.captchaNeed == true}">				
+					<div class="col-sm-12 col-md-12 col-lg-12" style="margin-top: 15px; margin-bottom: 15px;">
+						<div style="background-color: white; max-width: 440px;">
+							<h:outputText escape="false" value="#{index.codigoHtmlRecaptcha}"/>
+						</div>
+					</div>
+				</h:panelGroup>
+			    
+			    <div class="col-sm-12 col-md-12 col-lg-12">
+			   		<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+			   			<h:inputFile value="#{index.imagem}" id="input-image" pt:required="true" required="true">		   			
+			   			</h:inputFile>
+			   		<div id="erroUpload" style="display: false;">   			
+			   		</div>
+			   		</div>
+			   		<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+			    		<h:commandButton value="#{mensagens.gerarCarta}" action="#{index.gerarCarta}" styleClass="btn btn-success" style="float: right;" />
+			    	</div>
+		   		</div>
+	   		</div>
+	   		<div class="col-sm-2 col-md-2 col-lg-2"   style="margin-bottom:30px;">
+	   			<script async="true" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<!-- Anuncio Index STG -->
+				<ins class="adsbygoogle"
+				     style="display:block"
+				     data-ad-client="ca-pub-8540110707418414"
+				     data-ad-slot="8453169981"
+				     data-ad-format="auto"></ins>
+				<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+				</script>
+	   		</div>   
+	    </h:form>
+	</ui:define>
+</ui:composition>
+</html>
